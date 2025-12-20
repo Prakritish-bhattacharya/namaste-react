@@ -1,0 +1,30 @@
+{
+  "name": "namaste_react",
+  "version": "1.0.0",
+  "description": "Prakritish Bhattacharya",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Prakritish-bhattacharya/namaste-react.git"
+  },
+  "keywords": [
+    "react",
+    "Prakritish"
+  ],
+  "author": "Prakritish Bhattacharya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Prakritish-bhattacharya/namaste-react/issues"
+  },
+  "homepage": "https://github.com/Prakritish-bhattacharya/namaste-react#readme",
+  "devDependencies": {
+    "parcel": "^2.16.3"
+  },
+  "dependencies": {
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
+  }
+}
