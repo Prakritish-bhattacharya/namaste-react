@@ -1,6 +1,15 @@
 import { LOGO_URL } from "../utils/constant";
+import { useState } from "react";
 //  Header component
+// const [isLoggedIn,setLoggedIn] = useState(btnname)
+// const btnname="Login"
+// function handleLogin(){
+//   setLoggedIn(true)
+// }
+
 const Header = ()=>{
+  // let btnName = "Login"
+  const [btnNameReact, setbtnNameReact] = useState("Login")
   return(
     <div className="header">
       <div>
@@ -12,6 +21,13 @@ const Header = ()=>{
           <li>About Us</li>
           <li>Contact Us</li>
           <li>Cart</li>
+          <button className="login" 
+              onClick= {() =>{
+                btnNameReact === "Login" ? 
+                setbtnNameReact("Logout") : 
+                setbtnNameReact("Login")
+              }}>{btnNameReact}
+          </button>
         </ul>
       </div>
     </div>

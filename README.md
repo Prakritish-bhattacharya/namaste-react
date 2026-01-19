@@ -18,3 +18,15 @@
   # Named Export/Import
       export const Component
       import {Component} from "File_path"
+
+
+# React Hoocks
+    Normal JS utility function
+    - useState()-----> super powerful state variable-----It is used to create State variable------it maintains the state of   your Component
+    - useEffect()------>
+        it takes two arguments
+            1) CallBack function
+            2) Dependencies Array
+        useEffect( ()=>{},
+                   []
+                 )

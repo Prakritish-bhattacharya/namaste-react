@@ -28,7 +28,7 @@ const resList =
                           "Italian",
                           "Fast Food"
                         ],
-                        "avgRating": 4.3,
+                        "avgRating": 3.3,
                         "avgRatingString": "4.3",
                         "totalRatingsString": "10K+ ratings",
                         "veg": false,
@@ -56,7 +56,7 @@ const resList =
                           "American",
                           "Fast Food"
                         ],
-                        "avgRating": 4.5,
+                        "avgRating": 3.2,
                         "avgRatingString": "4.5",
                         "totalRatingsString": "15K+ ratings",
                         "veg": false,

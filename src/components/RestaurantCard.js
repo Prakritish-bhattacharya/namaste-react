@@ -3,7 +3,6 @@ import { CDN_URL } from "../utils/constant"
 // ReataurantCard component
 const RestaurantCard = (props)=>{
   const {resData} = props
-  // const restaurant = resData?.info;
 
   const {name, cuisines, avgRating, cloudinaryImageId, sla} = resData
   return(
