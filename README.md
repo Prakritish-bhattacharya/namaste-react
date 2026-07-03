@@ -1,6 +1,10 @@
 1) Header
     1) Logo
     2) Nav Items
+       - About Us 
+       - Contact Us
+       - Discount
+       - Cart
 2) Body
     1) Search Bar
     2) Restaurant Container
