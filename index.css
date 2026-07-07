@@ -35,8 +35,11 @@
     border: 1px solid black;
     cursor: pointer;
 }
-.search{
-    padding: 10px
+.filter-btn{
+    margin-top: 5px;
+    padding: 5px;
+    border: 1px solid black;
+    cursor: pointer;
 }
 .res-logo{
     padding: 5px;
