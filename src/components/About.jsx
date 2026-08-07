@@ -1,5 +1,5 @@
 import User from "./User";
-import UserClassBaseComp from "./UserClassBaseComp";
+// import UserClassBaseComp from "./UserClassBaseComp";
 const About = () => {
   return (
     <div>
@@ -9,7 +9,7 @@ const About = () => {
         component
       </p>
       <User />
-      <UserClassBaseComp />
+      <User />
     </div>
   );
 };

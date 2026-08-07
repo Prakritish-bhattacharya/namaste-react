@@ -1,6 +1,5 @@
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
-// import resObj from "../utils/mockData"
 import { useEffect, useState } from "react";
 
 const Body = () => {
@@ -11,65 +10,95 @@ const Body = () => {
     fetchData();
   }, []);
 
-  // Fetch APIs data using browsers inBuild function fetch()
+  // Fetch Restaurant Data
   const fetchData = async () => {
-    const data = await fetch("https:/namastedev.com/api/v1/listRestaurants");
-
+    const data = await fetch("https://namastedev.com/api/v1/listRestaurants");
     const json = await data.json();
-    console.log(json);
+
     setRestaurants(
-      json.data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants,
+      json.data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
     );
   };
 
-  return restaurants.length === 0 ? (
-    <Shimmer />
-  ) : (
-    <div className="body">
-      <div className="filter">
-        <div className="search">
-          <input
-            type="text"
-            className="search-box"
-            placeholder="Search for restaurants"
-            value={searchText}
-            onChange={(e) => {
-              setSearchText(e.target.value);
-            }}
-          />
-          <button
-            className="search-btn"
-            onClick={() => {
-              // Filter the restaurant cards and update the UI
-              const filteredRestaurants = restaurants.filter((restaurant) =>
-                restaurant.info.name
-                  .toLowerCase()
-                  .includes(searchText.toLowerCase()),
-              );
-              setRestaurants(filteredRestaurants);
-              console.log(searchText);
-            }}>
-            Search
-          </button>
-        </div>
+  if (restaurants.length === 0) return <Shimmer />;
+
+  return (
+    <div className="mx-auto max-w-7xl px-6 py-8">
+
+      {/* Search & Filter Section */}
+      <div className="mb-10 flex flex-wrap items-center gap-4">
+
+        <input
+          type="text"
+          placeholder="Search restaurants..."
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+          className="h-12 w-80 rounded-xl border border-gray-300 px-4 text-base
+                     outline-none transition
+                     focus:border-orange-500
+                     focus:ring-2
+                     focus:ring-orange-200"
+        />
+
         <button
-          className="filter-btn"
           onClick={() => {
-            let filteredList = restaurants.filter(
-              (restaurant) => restaurant.info.avgRating > 4,
+            const filteredRestaurants = restaurants.filter((restaurant) =>
+              restaurant.info.name
+                .toLowerCase()
+                .includes(searchText.toLowerCase())
             );
-            // console.log(filteredList);
-            setRestaurants(filteredList);
-          }}>
-          Restaurant Filter
+
+            setRestaurants(filteredRestaurants);
+          }}
+          className="h-12 rounded-xl bg-orange-500 px-6
+                     font-semibold text-white shadow-md
+                     transition-all duration-300
+                     hover:-translate-y-1
+                     hover:bg-orange-600
+                     hover:shadow-xl"
+        >
+          Search
         </button>
+
+        <button
+          onClick={() => {
+            const filteredList = restaurants.filter(
+              (restaurant) => restaurant.info.avgRating > 4
+            );
+
+            setRestaurants(filteredList);
+          }}
+          className="h-12 rounded-xl bg-slate-900 px-6
+                     font-semibold text-white shadow-md
+                     transition-all duration-300
+                     hover:-translate-y-1
+                     hover:bg-black
+                     hover:shadow-xl"
+        >
+          Top Rated
+        </button>
+
       </div>
 
-      <div className="res-container">
+      {/* Restaurant Cards */}
+      <div
+        className="
+          grid
+          grid-cols-1
+          gap-8
+          sm:grid-cols-2
+          lg:grid-cols-3
+          xl:grid-cols-4
+        "
+      >
         {restaurants.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} resData={restaurant.info} />
+          <RestaurantCard
+            key={restaurant.info.id}
+            resData={restaurant.info}
+          />
         ))}
       </div>
+
     </div>
   );
 };

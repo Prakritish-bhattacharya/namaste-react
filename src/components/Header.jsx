@@ -1,21 +1,57 @@
-import {Link} from "react-router-dom";
-// Header component
+import { Link } from "react-router-dom";
+
 const Header = () => {
   return (
-    <div className="header">
-      <div className="logo-container">
-        <img className="logo" src="images-removebg-preview.png"></img>
+    <header className="sticky top-0 z-50 bg-white shadow-md">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-4">
+        {/* Logo */}
+        <Link to="/">
+          <img
+            src="images-removebg-preview.png"
+            alt="Logo"
+            className="h-14 w-auto"
+          />
+        </Link>
+
+        {/* Navigation */}
+        <nav>
+          <ul className="flex items-center gap-10 font-semibold ">
+            {[
+              { name: "Home", path: "/" },
+              { name: "About Us", path: "/about" },
+              { name: "Contact Us", path: "/contact" },
+              { name: "Cart", path: "/cart" },
+            ].map((item) => (
+              <li key={item.name}>
+                <Link
+                  to={item.path}
+                  className="
+                    relative
+                    text-gray-800
+                    transition-all
+                    duration-300
+                    hover:text-orange-500
+
+                    after:absolute
+                    after:left-0
+                    after:-bottom-2
+                    after:h-[3px]
+                    after:w-0
+                    after:bg-orange-500
+                    after:transition-all
+                    after:duration-300
+
+                    hover:after:w-full
+                  ">
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
-      <div className="nav-items">
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About Us</Link></li>
-          <li><Link to="/contact">Contact Us</Link></li>
-          <li><Link to="/cart">Cart</Link></li>
-        </ul>
-      </div>
-    </div>
+    </header>
   );
 };
 
-export default Header
+export default Header;
